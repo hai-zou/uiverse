@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>荷花特效</title>
+  <style>
+    .beam {
+      margin-top: 400px;
+      width: 300px;
+      height: 300px;
+      border-radius: 300px 0px;
+      background: -webkit-linear-gradient(45deg, rgba(188, 190, 192, 1) 8%, rgba(158, 31, 99, 1) 30%, rgba(158, 31, 99, 1) 100%);
+      opacity: 0.5;
+      /* 兼容IE */
+      filter: alpha(opacity=50);
+      transform: rotate(135deg);
+      transform-origin: top right;
+    }
+
+    .demo {
+      margin: 300px auto 0;
+      width: 500px;
+    }
+
+    .box {
+      position: relative;
+      height: 400px;
+    }
+
+    .box .beam {
+      position: absolute;
+    }
+
+    .beam:nth-child(1) {
+      animation: show-1 5s ease-in-out infinite;
+    }
+
+    @keyframes show-1 {
+      0% {
+        transform: rotate(135deg);
+      }
+
+      100% {
+        transform: rotate(149deg);
+      }
+    }
+
+    .beam:nth-child(2) {
+      animation: show-2 5s ease-in-out infinite;
+    }
+
+    @keyframes show-2 {
+      0% {
+        transform: rotate(135deg);
+      }
+
+      100% {
+        transform: rotate(175deg);
+      }
+    }
+
+    .beam:nth-child(3) {
+      animation: show-3 5s ease-in-out infinite;
+    }
+
+    @keyframes show-3 {
+      0% {
+        transform: rotate(135deg);
+      }
+
+      100% {
+        transform: rotate(200deg);
+      }
+    }
+
+    .beam:nth-child(4) {
+      animation: show-4 5s ease-in-out infinite;
+    }
+
+    @keyframes show-4 {
+      0% {
+        transform: rotate(135deg);
+      }
+
+      100% {
+        transform: rotate(225deg);
+      }
+    }
+
+    .beam:nth-child(5) {
+      animation: show-5 5s ease-in-out infinite;
+    }
+
+    @keyframes show-5 {
+      0% {
+        transform: rotate(135deg);
+      }
+
+      100% {
+        transform: rotate(121deg);
+      }
+    }
+
+    .beam:nth-child(6) {
+      animation: show-6 5s ease-in-out infinite;
+    }
+
+    @keyframes show-6 {
+      0% {
+        transform: rotate(135deg);
+      }
+
+      100% {
+        transform: rotate(95deg);
+      }
+    }
+
+    .beam:nth-child(7) {
+      animation: show-7 5s ease-in-out infinite;
+    }
+
+    @keyframes show-7 {
+      0% {
+        transform: rotate(135deg);
+      }
+
+      100% {
+        transform: rotate(70deg);
+      }
+    }
+
+    .beam:nth-child(8) {
+      animation: show-8 5s ease-in-out infinite;
+    }
+
+    @keyframes show-8 {
+      0% {
+        transform: rotate(135deg);
+      }
+
+      100% {
+        transform: rotate(45deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="demo">
+    <div class="box">
+
+      <div class="beam"></div>
+
+      <div class="beam"></div>
+
+      <div class="beam"></div>
+
+      <div class="beam"></div>
+
+      <div class="beam"></div>
+
+      <div class="beam"></div>
+
+      <div class="beam"></div>
+
+      <div class="beam"></div>
+
+    </div>
+  </div>
+</body>
+
+</html>

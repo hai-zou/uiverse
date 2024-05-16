@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>旋转相册</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      overflow: hidden;
+      background-color: #000;
+    }
+
+    #perspective {
+      /* 景深 */
+      perspective: 800px;
+    }
+
+    #wrap {
+      width: 133px;
+      height: 200px;
+      margin: 350px auto;
+      position: relative;
+      /* 设置3D场景 */
+      transform-style: preserve-3d;
+      transform: rotateX(-20deg) rotateY(0deg);
+    }
+
+    #wrap img {
+      user-select: none;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      border: 1px solid #fff;
+      /* 设置阴影 配合 3D场景 可以忽略层级问题 */
+      box-shadow: 0px 0px 1px #eee;
+      /* 初始角度 */
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+  </style>
+</head>
+
+<!-- 设置图片不可拖拽 -->
+
+<body ondragstart="return false">
+  <div id="perspective">
+    <div id="wrap">
+      <img draggable="false" src="./images/cm.jpg" alt="">
+      <img draggable="false" src="./images/gnqc_2.jpg" alt="">
+      <img draggable="false" src="./images/pg_1.jpg" alt="">
+      <img draggable="false" src="./images/putao_1.jpg" alt="">
+      <img draggable="false" src="./images/qc1.jpg" alt="">
+      <img draggable="false" src="./images/qc2.jpg" alt="">
+      <img draggable="false" src="./images/sgdg.jpg" alt="">
+      <img draggable="false" src="./images/sgnc_1.jpg" alt="">
+      <img draggable="false" src="./images/xg.jpg" alt="">
+      <img draggable="false" src="./images/xj.jpg" alt="">
+      <img draggable="false" src="./images/ym_1.jpg" alt="">
+    </div>
+  </div>
+  <script>
+    window.onload = function () {
+      // 获取所有的图片
+      var allImg = document.getElementsByTagName('img');
+
+      //获取容器
+      var oWrap = document.getElementById('wrap')
+
+      //定义旋转的角度
+      var Deg = 360 / allImg.length
+
+      //forEach是数组的方法，类数组不能用
+      Array.prototype.forEach.call(allImg, function (el, index) {
+        el.style.transform = `rotateY(${index * Deg}deg) translateZ(${25 * allImg.length}px)`
+        // el.style.zIndex = -index
+        el.style.transition = 'transform 1s ' + index * 0.1 + 's'
+      })
+
+      // 实现鼠标拖动效果
+
+      //当前鼠标的位置
+      var nowX, nowY,
+        //上一次鼠标的位置
+        preX, preY,
+        // 鼠标移动的差值
+        minusX, minusY,
+        //旋转的度数
+        roX = -20,
+        roY = 0
+
+      document.onmousedown = function (ev) {
+        var ev = ev || window.event
+
+        //获取第一次点击时鼠标的位置
+        preX = ev.clientX
+        preY = ev.clientY
+
+        this.onmousemove = function (ev) {
+          var ev = ev || window.event
+
+          //获取鼠标不断移动改变的位置
+          nowX = ev.clientX
+          nowY = ev.clientY
+
+          //计算差值
+          minusX = nowX - preX
+          minusY = nowY - preY
+
+          // 总度数
+          roX -= minusY
+          roY += minusX
+
+          //改变度数
+          //除以 10 ，降低灵敏度
+          oWrap.style.transform = 'rotateX(' + roX / 10 + 'deg) rotateY(' + roY / 10 + 'deg)'
+
+          //鼠标不断移动，将这一次的位置设置给上一次
+          preX = nowX
+          preY = nowY
+        }
+        this.onmouseup = function () {
+          this.onmousemove = null
+          this.onmouseup = null
+        }
+      }
+
+    }
+  </script>
+</body>
+
+</html>

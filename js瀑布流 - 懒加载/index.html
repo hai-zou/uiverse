@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js瀑布流</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="box">
+      <div class="box-img">
+        <img src="./images/1.jpg" alt="">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="./images/2.jpg" alt="">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="./images/3.jpg" alt="">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="./images/4.jpg" alt="">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="./images/5.jpg" alt="">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="./images/6.jpg" alt="">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="./images/7.jpg" alt="">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="./images/8.png" alt="">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="./images/9.jpg" alt="">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="./images/10.jpg" alt="">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="./images/11.jpg" alt="">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="./images/12.png" alt="">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="./images/13.jpg" alt="">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="./images/14.jpg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      imgLocation('box');
+      const imgData = [{
+        'src': '15.jpg'
+      }, {
+        'src': '16.png'
+      }, {
+        'src': '17.png'
+      }, {
+        'src': '18.jpg'
+      }, {
+        'src': '19.jpg'
+      }]
+      //监听滚动事件
+      this.addEventListener('scroll', () => {
+        if (checkLoading('box')) {
+          imgData.map((current) => {
+            const oDiv = document.createElement('div')
+            oDiv.className = 'box'
+            oParent.appendChild(oDiv)
+            const boxImg = document.createElement('div')
+            boxImg.className = 'box-img'
+            oDiv.appendChild(boxImg)
+            const img = new Image()
+            img.src = 'images/' + current.src
+            boxImg.appendChild(img)
+          })
+          imgLocation('box')
+        }
+      })
+    })
+    var oParent = document.getElementById('container')
+
+    const imgLocation = (child) => {
+      const aContent = getChilds(child);
+      const imgWith = aContent[0].offsetWidth
+      const num = Math.floor(document.documentElement.clientWidth / imgWith)
+      oParent.style.cssText = 'width: ' + imgWith * num + 'px;  margin: 0 auto;'
+
+      //计算图片的高度
+      const heightArr = [];
+      [].map.call(aContent, (current, index) => {
+        if (index < num) {
+          heightArr.push(current.offsetHeight)
+        } else {
+          //得到图片的最小高度
+          const minHeight = Math.min(...heightArr)
+          //得到最小高度的索引
+          const minIndex = getMinIndex(minHeight, heightArr)
+          current.style.position = 'absolute'
+          current.style.top = minHeight + 'px'
+          current.style.left = aContent[minIndex].offsetLeft + 'px'
+          //更新最小的高度
+          heightArr[minIndex] = heightArr[minIndex] + current.offsetHeight
+          // console.log(minIndex);
+        }
+      })
+      console.log(heightArr);
+    }
+
+    const getChilds = (child) => {
+      const childArr = []
+      const tagsAll = oParent.getElementsByTagName('*');
+      [].map.call(tagsAll, (current) => {
+        if (current.className == child) {
+          childArr.push(current)
+        }
+      })
+      return childArr
+    }
+
+    //获取最小高度
+    function getMin(arr) {
+      for (var i = 0, ret = arr[0]; i < arr.length; i++) {
+        ret = Math.min(ret, arr[i])
+      }
+      return ret
+    }
+    //获取最小高度的索引
+    function getMinIndex(minHeight, heightArr) {
+      for (var i in heightArr) {
+        if (heightArr[i] == minHeight) {
+          return i
+        }
+      }
+    }
+
+    const checkLoading = (child) => {
+      const aContent = getChilds(child)
+      const lastTop = aContent[aContent.length - 1].offsetTop
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+      const pageHeight = document.documentElement.clientHeight || document.body.clientHeight
+      if (scrollTop + pageHeight > lastTop) {
+        return true
+      }
+    }
+  </script>
+</body>
+
+</html>
