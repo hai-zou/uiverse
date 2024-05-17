@@ -5,11 +5,12 @@ fs.readdir('./src', (err, files) => {
     console.error(err);
     return;
   }
-  const htmlTpl = String(fs.readFileSync('./index.tpl'));
   const list = files.map(name => ({
     name,
     url: `./src/${name}/index.html`
   }));
+
+  const htmlTpl = String(fs.readFileSync('./index.tpl'));
   const resultTpl = htmlTpl.replace(/{{list}}/g, JSON.stringify(list));
 
   fs.writeFileSync(`./index.html`, resultTpl);
