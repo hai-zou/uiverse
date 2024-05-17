@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const EL_PATH = path.resolve(process.cwd(), './src');
-const INDEX_PATH = path.resolve(process.cwd(), './public');
+const INDEX_PATH = path.resolve(process.cwd(), './');
 const INDEX_TPL_PATH = path.resolve(process.cwd(), './index.tpl');
 
 // 读取当前目录下的文件列表
