@@ -1,6 +1,5 @@
 const fs = require('fs');
 
-// read dir
 fs.readdir('./src', (err, files) => {
   if (err) {
     console.error(err);
