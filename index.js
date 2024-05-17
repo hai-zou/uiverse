@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const EL_PATH = path.resolve(__dirname, './src');
+const INDEX_PATH = path.resolve(__dirname, './public');
 const INDEX_TPL_PATH = path.resolve(__dirname, './index.tpl');
 
 // 读取当前目录下的文件列表
@@ -17,5 +18,5 @@ fs.readdir(EL_PATH, (err, files) => {
   }));
   const resultTpl = htmlTpl.replace(/{{list}}/g, JSON.stringify(list));
 
-  fs.writeFileSync(`./index.html`, resultTpl);
+  fs.writeFileSync(`${INDEX_PATH}/index.html`, resultTpl);
 });
