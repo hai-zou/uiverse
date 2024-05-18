@@ -4,11 +4,10 @@ const centerAxisEle = document.getElementById("center-axis");
 const cardWidth = 1080 / 4;
 const cardHeight = 1920 / 4;
 
-// 圆周长
-const circumference = cardWidth * allImg.length;
+// 圆周长，图片宽度 + 间隙
+const circumference = (cardWidth + 100) * allImg.length;
 // 求圆的半径根据公式 r=C/2π
-// 让图片之前保持一点间隙，将 2 调小一点
-const radius = circumference / (1.2 * Math.PI);
+const radius = circumference / (2 * Math.PI);
 
 let x = -10;
 let y = 0;
