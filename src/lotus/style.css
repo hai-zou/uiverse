@@ -1,0 +1,172 @@
+:root {
+  --wrap-width: 600px;
+  --wrap-height: 400px;
+}
+
+.lotus-wrap {
+  margin: 300px auto 0;
+  width: var(--wrap-width);
+  height: var(--wrap-height);
+  position: relative;
+}
+
+.petal {
+  position: absolute;
+  margin-top: var(--wrap-height);
+  width: calc(var(--wrap-width) / 2);
+  height: calc(var(--wrap-width) / 2);
+  border-radius: var(--wrap-width) 0px;
+  background: -webkit-linear-gradient(
+    45deg,
+    rgba(188, 190, 192, 1) 8%,
+    rgba(158, 31, 99, 1) 30%,
+    rgba(158, 31, 99, 1) 100%
+  );
+  opacity: 0.5;
+  transform: rotate(135deg);
+  transform-origin: top right;
+}
+
+.petal:nth-child(1) {
+  animation: show-1 10s ease-in-out infinite;
+}
+
+@keyframes show-1 {
+  0% {
+    transform: rotate(135deg);
+  }
+
+  50% {
+    transform: rotate(149deg);
+  }
+
+  100% {
+    transform: rotate(135deg);
+  }
+}
+
+.petal:nth-child(2) {
+  animation: show-2 10s ease-in-out infinite;
+}
+
+@keyframes show-2 {
+  0% {
+    transform: rotate(135deg);
+  }
+
+  50% {
+    transform: rotate(175deg);
+  }
+
+  100% {
+    transform: rotate(135deg);
+  }
+}
+
+.petal:nth-child(3) {
+  animation: show-3 10s ease-in-out infinite;
+}
+
+@keyframes show-3 {
+  0% {
+    transform: rotate(135deg);
+  }
+
+  50% {
+    transform: rotate(200deg);
+  }
+
+  100% {
+    transform: rotate(135deg);
+  }
+}
+
+.petal:nth-child(4) {
+  animation: show-4 10s ease-in-out infinite;
+}
+
+@keyframes show-4 {
+  0% {
+    transform: rotate(135deg);
+  }
+
+  50% {
+    transform: rotate(225deg);
+  }
+
+  100% {
+    transform: rotate(135deg);
+  }
+}
+
+.petal:nth-child(5) {
+  animation: show-5 10s ease-in-out infinite;
+}
+
+@keyframes show-5 {
+  0% {
+    transform: rotate(135deg);
+  }
+
+  50% {
+    transform: rotate(121deg);
+  }
+
+  100% {
+    transform: rotate(135deg);
+  }
+}
+
+.petal:nth-child(6) {
+  animation: show-6 10s ease-in-out infinite;
+}
+
+@keyframes show-6 {
+  0% {
+    transform: rotate(135deg);
+  }
+
+  50% {
+    transform: rotate(95deg);
+  }
+
+  100% {
+    transform: rotate(135deg);
+  }
+}
+
+.petal:nth-child(7) {
+  animation: show-7 10s ease-in-out infinite;
+}
+
+@keyframes show-7 {
+  0% {
+    transform: rotate(135deg);
+  }
+
+  50% {
+    transform: rotate(70deg);
+  }
+
+  100% {
+    transform: rotate(135deg);
+  }
+}
+
+.petal:nth-child(8) {
+  animation: show-8 10s ease-in-out infinite;
+}
+
+@keyframes show-8 {
+  0% {
+    transform: rotate(135deg);
+  }
+
+  50% {
+    transform: rotate(45deg);
+  }
+
+  100% {
+    transform: rotate(135deg);
+  }
+}
