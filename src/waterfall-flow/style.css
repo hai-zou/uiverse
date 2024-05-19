@@ -1,0 +1,24 @@
+:root {
+  --wrap-width: 1350px;
+  --bg-color: #E1F6FD;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+#waterfall-wrap {
+  position: relative;
+  width: var(--wrap-width);
+  margin: 0 auto;
+}
+
+img {
+  border-radius: 8px;
+}
