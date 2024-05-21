@@ -4,10 +4,13 @@
   "description": "UI Elements",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node index.js"
+    "build": "node index.js",
+    "start": "lite-server"
   },
   "keywords": [],
   "author": "haizou",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
 }
