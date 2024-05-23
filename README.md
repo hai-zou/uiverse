@@ -2,38 +2,40 @@
 
 Here are some examples of beautiful UI components, They can be used for practice or used directly in your application.
 
-[Live Demo](https://uiverse-jade.vercel.app/)
+## Online Preview
 
-## Run locally
+[https://uiverse-jade.vercel.app/](https://uiverse-jade.vercel.app/)
 
-1. Clone this repository
+## Run Locally
+
+Clone this repository
 
 ```bash
 git clone https://github.com/hai-zou/uiverse.git
 ```
  
-2. Move to the cloned directory
+Move to the cloned directory
 
 ```bash
 cd uiverse
 ```
 
-3. Install dependencies
+Install dependencies
 
 ```bash
 npm install
 ```
 
-4. Build navigation page: `index.html`
+Build navigation page: `index.html`
 
 ```bash
 npm run build
 ```
 
-5. Start the local Server
+Start the local Server
 
 ```bash
 npm run start
 ```
 
-6. Successfully runs on `http://localhost:3000/`
+Successfully runs on `http://localhost:3000/`
