@@ -1,0 +1,137 @@
+:root {
+  --primary: #03e9f4;
+  --black: #050801;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--black);
+}
+
+.neon-btn {
+  display: inline-block;
+  position: relative;
+  padding: 25px 30px;
+  margin: 0 40px;
+  color: var(--primary);
+  font-size: 24px;
+  text-decoration: none;
+  overflow: hidden;
+  letter-spacing: 4px;
+  transition: 0.5s;
+}
+
+.neon-btn:hover {
+  background-color: var(--primary);
+  color: var(--black);
+  box-shadow:
+    0 0 5px var(--primary),
+    0 0 25px var(--primary),
+    0 0 50px var(--primary),
+    0 0 200px var(--primary);
+}
+
+.neon-btn:nth-child(1) {
+  filter: hue-rotate(290deg);
+}
+
+.neon-btn:nth-child(3) {
+  filter: hue-rotate(110deg);
+}
+
+.neon-btn span {
+  position: absolute;
+  display: block;
+}
+
+.neon-btn span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary));
+  animation: streamer-1 1s linear infinite;
+}
+
+.neon-btn span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, var(--primary));
+  animation: streamer-2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+.neon-btn span:nth-child(3) {
+  right: -100%;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, var(--primary));
+  animation: streamer-3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+.neon-btn span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, var(--primary));
+  animation: streamer-4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes streamer-1 {
+  0% {
+    left: -100%;
+  }
+
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes streamer-2 {
+  0% {
+    top: -100%;
+  }
+
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes streamer-3 {
+  0% {
+    right: -100%;
+  }
+
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes streamer-4 {
+  0% {
+    bottom: -100%;
+  }
+
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
