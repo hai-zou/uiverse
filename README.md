@@ -4,7 +4,7 @@ Here are some examples of beautiful UI components, They can be used for practice
 
 ## Online Preview
 
-[https://hai-zou.github.io/uiverse/)
+<https://hai-zou.github.io/uiverse/>
 
 ## Run Locally
 
