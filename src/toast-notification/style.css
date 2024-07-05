@@ -1,7 +1,10 @@
 :root {
+  --button-color: #3d7926;
+  --button-background: #fff;
   --notification-background: #313e2c;
   --notification-primary: #aaec8a;
   --background: #FAF9FF;
+  --shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -14,24 +17,57 @@ body {
   font-family: 'Poppins', sans-serif;
   height: 100vh;
   background-color: var(--background);
+  overflow: hidden;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  background-color: var(--button-background);
+  color: var(--button-color);
+  box-shadow: var(--shadow);
+  font-family: inherit;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+#notifications {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
 }
 
 .notification {
-  position: absolute;
-  width: max-content;
-  left: 0;
-  right: 0;
-  bottom: 1.5rem;
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
+  max-width: 400px;
   border-radius: 0.375rem;
   background-color: var(--notification-background);
   color: var(--notification-primary);
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
-  transform: translateY(1.875rem);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 0.5rem;
   opacity: 0;
-  visibility: hidden;
-  animation: fade-in 3s linear;
+  transform: translateX(100%);
+  transition: all .2s ease-out;
 }
 
 .notification__icon {
@@ -40,14 +76,13 @@ body {
   margin-right: 0.25rem;
 }
 
-.notification__body {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 1rem 0.5rem;
+.notification.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-.notification__progress {
+.notification::after {
+  content: '';
   position: absolute;
   left: 0.25rem;
   bottom: 0.25rem;
@@ -60,19 +95,6 @@ body {
       var(--notification-primary));
   border-radius: inherit;
   animation: progress 2.5s 0.3s linear;
-}
-
-@keyframes fade-in {
-  5% {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  95% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 @keyframes progress {
