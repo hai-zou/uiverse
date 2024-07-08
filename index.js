@@ -7,7 +7,8 @@ fs.readdir('./src', (err, files) => {
   }
   const list = files.map(name => ({
     name,
-    url: `./src/${name}/index.html`
+    url: `./src/${name}/index.html`,
+    img: `./src/${name}/preview.png`,
   }));
 
   const htmlTpl = String(fs.readFileSync('./index.tpl'));
