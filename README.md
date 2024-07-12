@@ -2,6 +2,8 @@
 
 Here are some examples of beautiful UI components, They can be used for practice or used directly in your application.
 
+![Home Preview](/public/home-preview.png)
+
 ## Online Preview
 
 <https://hai-zou.github.io/uiverse/>

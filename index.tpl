@@ -8,6 +8,7 @@
   <style>
     body {
       margin: 0;
+      background-color: bisque;
     }
     #el-list {
       width: 80%;
@@ -21,6 +22,8 @@
     .el-item {
       padding: 20px;
       box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      border-radius: 8px;
       display: flex;
       justify-content: center;
       align-items: center;
