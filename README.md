@@ -41,3 +41,7 @@ npm run start
 ```
 
 Successfully runs on `http://localhost:3000/`
+
+## Contribution
+
+Contributions are always welcome!
